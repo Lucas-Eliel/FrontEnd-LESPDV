@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Entidades</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="time" item-left large ></ion-icon>
+            Busca Entidades    
+        </ion-item>
+    </ion-card>
+
+    <ion-card *ngFor="let item of items">
+        <ion-list >
+          <ion-item>
+              <p>Código: {{item.codigo}}</p>
+              <p>Nome: {{item.nome}}</p>
+              <p>Desconto (%): {{item.vlrDesconto}}</p>
+          </ion-item>
+        </ion-list>
+      <button ion-button clear item-end color="secondary" (click)="entidadeSelecionada(item.codigo,item.nome,item.vlrDesconto)">SELECIONAR</button>
+    </ion-card>
+
+</ion-content>

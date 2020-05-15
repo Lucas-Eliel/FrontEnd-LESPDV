@@ -1,0 +1,141 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title align="center">
+            VENDA
+        </ion-title>
+    </ion-navbar>
+        <div style="background-color:whitesmoke">
+            <ion-label stacked align="right" color="danger"><b style="color:black">Usuário: </b><b style="color:darkgreen">{{usuario}}</b><b style="color:black"> | Token:</b> {{token}}</ion-label>
+        </div>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="document" item-left large ></ion-icon>
+            DOCUMENTO                        
+        </ion-item>
+        <ion-item>
+            <button ion-button clear item-end (click)="buscaDadosComanda(numComanda)"><ion-icon name="search" style="zoom:2.0;"></ion-icon></button>
+            <ion-label style="zoom:0.9;"><b>STATUS:</b></ion-label>
+            <ion-input style="zoom:0.9;color:red;" type="text" [(ngModel)]="numComanda"></ion-input>
+        </ion-item>
+    </ion-card>
+
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="people" item-left large ></ion-icon>
+            CLIENTE                        
+        </ion-item>
+
+        <ion-grid>
+             <ion-row>
+            <!--    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                    <ion-item>
+                        <button ion-button clear item-end (click)="goToBuscaUnidade(descrUnidade)"><ion-icon name="search" style="zoom:2.0;"></ion-icon></button>
+                        <ion-label>Descr UN:</ion-label>
+                        <ion-input type="text" [(ngModel)]="descrUnidade" value=""></ion-input>
+                    </ion-item>
+                </ion-col> -->      
+
+                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                    <ion-item>
+                        <button ion-button clear item-end (click)="goToBuscaUnidade(codUnidade)"><ion-icon name="search" style="zoom:2.0;"></ion-icon></button>
+                        <ion-label  style="zoom:0.9;"><b>VENDA:</b></ion-label>
+                        <ion-input style="zoom:0.9;" type="number" [(ngModel)]="codUnidade"></ion-input>
+                    </ion-item>
+                </ion-col>                
+            </ion-row>
+        </ion-grid>
+
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                    <ion-item>
+                        <button ion-button clear item-end (click)="goToBuscaEntidade(descrEntidade)"><ion-icon name="search" style="zoom:2.0;"></ion-icon></button>
+                        <ion-label style="zoom:0.9;"><b>ENTIDADE:</b></ion-label>
+                        <ion-input style="zoom:0.9;" type="text" [(ngModel)]="descrEntidade"></ion-input>
+                    </ion-item>
+                </ion-col>    
+
+            <!--<ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                    <ion-item>
+                        <ion-label>Código Ent:</ion-label>
+                        <ion-input type="text" [(ngModel)]="codEntidade" disabled="true"></ion-input>
+                    </ion-item>
+                </ion-col> -->               
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="pricetags" item-left large ></ion-icon>
+            ITEM                     
+        </ion-item>
+
+        <ion-card>
+            <button ion-button block (click)="scan()">Buscar Ean</button>
+        </ion-card>
+        <ion-item>
+            <button ion-button clear item-end (click)="goToBuscaItem(descrItem)"><ion-icon name="search" style="zoom:2.0;"></ion-icon></button>
+            <ion-label style="zoom:0.9;"><b>DESCR ITEM:</b></ion-label>
+            <ion-input style="zoom:0.9;" type="text" [(ngModel)]="descrItem" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label style="zoom:0.9;"><b>CÓDIGO ITEM:</b></ion-label>
+            <ion-input style="zoom:0.9;" type="text" [(ngModel)]="codItem" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label style="zoom:0.9;"><b>VALOR UNIT:</b></ion-label>
+            <ion-input style="zoom:0.9;" type="text" [(ngModel)]="vlrUnit" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                    <ion-list>
+                        <ion-item>
+                            <ion-icon color="secondary" (click)="somarQuantidade()" style="zoom:4.0;" name="add-circle"></ion-icon>
+                            <ion-icon color="danger" (click)="subtrairQuantidade()" style="zoom:4.0;" name="ios-remove-circle"></ion-icon>
+                            <ion-icon style="zoom:4.0;">{{qtd}}</ion-icon>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>                
+            </ion-row>
+        </ion-grid>
+        <ion-item color="dark" style="zoom:0.9;">
+            <ion-icon name="calculator" item-left large ></ion-icon>
+            Subtotal: (R$) <b style="color:red;zoom:1.2;">{{subtotal}}</b>                     
+        </ion-item>
+        <ion-item color="dark" style="zoom:0.9;">
+            <ion-icon name="cash" item-left large ></ion-icon>
+            Desconto Item: (%) <b style="color:red;zoom:1.2;">{{desconto}}</b>               
+        </ion-item>
+        <ion-item color="dark" style="zoom:0.9;">
+            <ion-icon name="calculator" item-left large></ion-icon>
+            Total: (R$) <b style="color:red;zoom:1.2;">{{total}}</b>             
+        </ion-item>
+    </ion-card>
+
+
+
+    <ion-card>
+        <button ion-button block (click)="gravarLancamento()">Gravar</button>
+    </ion-card>
+
+    <ion-card>
+        <button ion-button block (click)="goToHome()">Fechar Transação</button>
+    </ion-card>
+
+    <ion-card>
+        <button ion-button block (click)="consultarVendas()">Consultar Venda</button>
+    </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        CONFIGURAÇÕES
+    </ion-title>
+  </ion-navbar>
+    <div style="background-color:whitesmoke">
+        <ion-label stacked align="right" color="danger"><b style="color:black">Usuário: </b><b style="color:darkgreen">{{usuario}}</b><b style="color:black"> | Token:</b> {{token}}</ion-label>
+    </div>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="laptop" item-left large ></ion-icon>
+            API                        
+        </ion-item>
+        <ion-item>
+            <ion-label>CAMINHO:</ion-label>
+            <ion-input type="text" [(ngModel)]="inputPortaLocal"></ion-input>
+        </ion-item>        
+    </ion-card>   
+
+    <ion-card>
+        <button ion-button block (click)="gravarConfig()">Gravar</button>
+    </ion-card>
+</ion-content>

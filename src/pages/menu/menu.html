@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title align="center">
+            LESPDV
+        </ion-title>
+    </ion-navbar>
+        <div style="background-color:whitesmoke">
+            <ion-label stacked align="right" color="danger"><b style="color:black">Usuário: </b><b style="color:darkgreen">{{usuario}}</b><b style="color:black"> | Token:</b> {{token}}</ion-label>
+        </div>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start align="center">
+                <img align="center" src="assets/imgs/lespdv.png"  style="width: 80px; height: 80px;"/>
+                </ion-avatar>
+                <ion-label>Bem Vindo</ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-card>
+            <ion-item color="light">
+                <ion-icon name="md-analytics" item-left large ></ion-icon>
+                Dashborad                        
+            </ion-item>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+                        <img src="assets/imgs/dashboard.gif"  style="width: 50%; height: 90%;"/>
+                    </ion-col>  
+                </ion-row>
+            </ion-grid>
+
+        </ion-card>
+
+
+
+    <ion-card>
+        <ion-item color="light">
+            <ion-icon name="albums" item-left large ></ion-icon>
+            Menu                        
+        </ion-item>
+
+        <ion-list>
+            <button ion-item (click)="goToNovaVenda()">
+                <ion-icon name="add" item-start></ion-icon>
+                Nova Venda
+            </button>
+            <button ion-item (click)="goToConsultaVenda()">
+                <ion-icon name="paper" item-start></ion-icon>
+                Consultar Lctos
+            </button>
+            <button ion-item (click)="goToConfig()">
+                <ion-icon name="settings" item-start></ion-icon>
+                Configurações
+            </button>
+            <button ion-item (click)="goToInfo()">
+                <ion-icon name="information-circle" item-start></ion-icon>
+                Informações
+            </button>
+            <button ion-item (click)="goToLogin()">
+                <ion-icon name="arrow-back" item-start></ion-icon>
+                Sair
+            </button>
+        </ion-list>
+    </ion-card>
+</ion-card>
+</ion-content>

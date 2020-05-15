@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Unidade de Negócio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="time" item-left large ></ion-icon>
+            Busca Unidade    
+        </ion-item>
+    </ion-card>
+
+    <ion-card *ngFor="let item of items">
+        <ion-list >
+          <ion-item>
+              <p>Código UN: {{item.codigoUn}}</p>
+              <p>Descr UN: {{item.descrUn}}</p>
+              <p>Código Ent: {{item.codigoEnt}}</p>
+              <p>Descr Ent: {{item.descrEnt}}</p>
+          </ion-item>
+        </ion-list>
+      <button ion-button clear item-end color="secondary" (click)="unidadeSelecionada(item.codigoUn,item.descrUn,item.codigoEnt,item.descrEnt)">SELECIONAR</button>
+    </ion-card>
+
+</ion-content>

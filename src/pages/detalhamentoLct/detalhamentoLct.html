@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>LESPDV</ion-title>
+    </ion-navbar>
+    <div style="background-color:whitesmoke">
+        <ion-label stacked align="right" color="danger"><b style="color:black">Usuário: </b><b style="color:darkgreen">{{usuario}}</b><b style="color:black"> | Token:</b> {{token}}</ion-label>
+    </div>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-item color="dark">
+            <ion-icon name="document" item-left large ></ion-icon>
+            Venda: {{numero}}                        
+        </ion-item>
+        <ion-list *ngFor="let dado of dados">
+            <ion-item color="dark">
+                <ion-icon name="people" item-left large ></ion-icon>
+                <p>{{dado.descrEntidade}}</p>
+                <p>Desconto:(%) : {{dado.desconto}}</p>
+            </ion-item>
+            <button ion-button block color="primary" (click)="goToVenda(dado.numero,dado.desconto)">ABRIR VENDA</button>
+        </ion-list>
+    </ion-card>
+
+
+    <ion-card *ngFor="let item of items">
+        <ion-list>
+            <ion-item>
+                <p><b>Lancamento: {{item.numLancamento}}</b></p>
+                <p>Item: {{item.codigo}}</p>
+                <p>{{item.descr}}</p>
+                <p>Qtd: {{item.qt}}</p>
+                <p><b>Valor Unitário: {{item.unit}}</b></p>
+                <p><b>Subtotal: {{item.subTotal}}</b></p>
+                <p><b>Valor Desconto: {{item.desconto}} </b></p>
+                <p><b>Total: {{item.total}}</b></p>
+            </ion-item>
+        </ion-list>
+        <button ion-button clear item-end color="danger" (click)="excluirLancamento(item.numLancamento, usuario)">EXCLUIR</button>
+    </ion-card>
+
+
+    <ion-card *ngFor="let total of totais">
+            <ion-item color="secondary">
+                <ion-icon name="calculator" item-left large ></ion-icon>
+                Total: {{total.total}}                        
+            </ion-item>
+    </ion-card>
+    
+</ion-content>
